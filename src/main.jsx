@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 /*
-Routes
+App
 */
-import { Router } from "./routes";
+import { App } from "./App";
 
 /*
 Providers
@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <CustomThemeProvider>
       <AuthProvider>
-        <Router />
+        <App />
       </AuthProvider>
     </CustomThemeProvider>
   </React.StrictMode>

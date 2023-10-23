@@ -7,8 +7,6 @@ function CustomThemeProvider({ children }) {
 
   const toggleTheme = (customTheme) => {
     const nextTheme = customTheme === "dark" ? "light" : "dark";
-    console.log(nextTheme);
-    console.log(theme);
     localStorage.setItem("@foodexplorer:theme", JSON.stringify(nextTheme));
     setTheme(nextTheme);
     return nextTheme;

@@ -10,6 +10,12 @@ export const Container = styled.main`
   align-items: center;
   justify-content: space-between;
 
+  > .switch {
+    position: absolute;
+    top: 6rem;
+    right: 4rem;
+  }
+
   @media only screen and (min-width: 932px) {
     flex-direction: row;
   }

@@ -15,6 +15,7 @@ Components
 */
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
+import { Switch } from "../../components/Switch";
 /*
 Services
 */
@@ -105,6 +106,7 @@ export function SignUp() {
 
         <Link onClick={onReturn}>Já tenho uma conta</Link>
       </Form>
+      <Switch className="switch"></Switch>
     </Container>
   );
 }
