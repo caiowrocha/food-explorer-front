@@ -17,6 +17,7 @@ Components
 */
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
+import { Switch } from "../../components/Switch";
 
 export function SignIn() {
   const [userEmail, setUserEmail] = useState("");
@@ -66,9 +67,9 @@ export function SignIn() {
           onClick={handleSignIn}
           disabled={isLoading}
         ></Button>
-
         <Link to="/signUp">Criar conta</Link>
       </Form>
+      <Switch className="switch"></Switch>
     </Container>
   );
 }

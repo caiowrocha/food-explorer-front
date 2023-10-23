@@ -10,6 +10,12 @@ export const Container = styled.main`
   align-items: center;
   justify-content: space-between;
 
+  > .switch {
+    position: absolute;
+    top: 6rem;
+    right: 4rem;
+  }
+
   @media only screen and (min-width: 932px) {
     flex-direction: row;
   }
@@ -60,7 +66,6 @@ export const Logo = styled.div`
     font-size: clamp(2.6rem, 3rem + 1.3vw, 4rem);
     white-space: nowrap;
   }
-
   .explorerLogo {
     display: flex;
     gap: 1.9rem;

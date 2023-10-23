@@ -10,21 +10,14 @@ import { Router } from "./routes";
 Providers
 */
 import { AuthProvider } from "./hooks/useAuth";
-
-/*
-Themes - Stylization Related
-*/
-import { ThemeProvider } from "styled-components";
-import GlobalStyles from "./styles/global";
-import themeDark from "./styles/themeDark";
+import { CustomThemeProvider } from "./hooks/useTheme";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ThemeProvider theme={themeDark}>
-      <GlobalStyles />
+    <CustomThemeProvider>
       <AuthProvider>
         <Router />
       </AuthProvider>
-    </ThemeProvider>
+    </CustomThemeProvider>
   </React.StrictMode>
 );
