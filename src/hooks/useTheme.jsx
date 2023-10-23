@@ -3,12 +3,14 @@ import { useState, useContext, createContext, useEffect } from "react";
 export const ThemeContext = createContext({});
 
 function CustomThemeProvider({ children }) {
-  const [theme, setTheme] = useState("darkMode");
+  const [theme, setTheme] = useState("light");
 
   const toggleTheme = (customTheme) => {
     const nextTheme = customTheme === "dark" ? "light" : "dark";
+    console.log(nextTheme);
+    console.log(theme);
+    localStorage.setItem("@foodexplorer:theme", JSON.stringify(nextTheme));
     setTheme(nextTheme);
-    localStorage.setItem("@foodexplorer:theme", JSON.stringify(theme));
     return nextTheme;
   };
 

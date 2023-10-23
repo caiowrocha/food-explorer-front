@@ -8,16 +8,13 @@ import { MoonIcon, SunIcon } from "../Icons";
 const Container = styled.span``;
 
 export function Switch({ toggle, isDarkTheme, ...rest }) {
-  const [theme, setTheme] = useState("dark");
-  const [isToggled, setIsToggled] = useState(false);
-
-  const { toggleTheme } = useCustomTheme();
+  const { toggleTheme, currentTheme } = useCustomTheme();
+  const [theme, setTheme] = useState(currentTheme);
+  const isDark = theme === "dark";
 
   const handleToggleTheme = (customTheme) => {
-    const themeColor = toggleTheme(customTheme);
-    console.log(themeColor);
-    setIsToggled(!isToggled);
-    setTheme(themeColor);
+    toggleTheme(customTheme);
+    setTheme(isDark ? "light" : "dark");
   };
 
   return (
@@ -27,7 +24,7 @@ export function Switch({ toggle, isDarkTheme, ...rest }) {
         <label className="toggle-switch">
           <input
             type="checkbox"
-            checked={isToggled}
+            checked={currentTheme === "dark" ? true : false}
             onChange={() => {
               handleToggleTheme(theme);
             }}

@@ -9,7 +9,7 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    transition: .3s ease;
+    transition:.25s ease;
   }
 
   :root {
