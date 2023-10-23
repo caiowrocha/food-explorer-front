@@ -9,6 +9,7 @@ import { Router } from "./routes";
 /*
 Providers
 */
+import { AuthProvider } from "./hooks/useAuth";
 
 /*
 Themes - Stylization Related
@@ -21,7 +22,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider theme={themeDark}>
       <GlobalStyles />
-      <Router />
+      <AuthProvider>
+        <Router />
+      </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>
 );

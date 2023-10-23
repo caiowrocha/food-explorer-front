@@ -10,8 +10,24 @@ export default createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  :root {
+    font-size: 62.5%;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: ${({ theme }) => theme.colors.dark_400};
+    color: ${({ theme }) => theme.colors.white};
+    font-size: 1.6rem;
+  }  
+
   a {
     text-decoration: none;
+  }
+
+  input, textarea {
+    font-family: 'Roboto', sans-serif;
+    outline: none;
   }
 
   button, a {

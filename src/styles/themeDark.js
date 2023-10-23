@@ -8,15 +8,17 @@ export default {
     black: "#000000",
     black_light: "#0D0C0F",
 
-    dark_200: "#001119",
     dark_300: "#192227",
-    dark_400: "#091E26",
+    dark_400: "#000A0F",
     dark_500: "#00131C",
+    dark_700: "#001119",
     dark_800: "#0D161B",
 
     gray_100: "#C4C4CC",
     gray_200: "rgba(255, 255, 255, 0.3)",
-    gray_300: "#7C7C8A",
+
+    light_400: "#C4C4CC",
+    light_500: "#7C7C8A",
     gray_400: "rgba(255, 255, 255, 0.05)",
 
     white: "#FFFFFF",
