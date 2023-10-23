@@ -15,6 +15,7 @@ export const Container = styled.button`
   font-weight: 500;
   font-size: 1.4rem;
 
-  color: ${({ theme }) => theme.colors.white};
+  color: #ffffff;
+  /* color: ${({ theme }) => theme.colors.white}; */
   background-color: ${({ theme }) => theme.colors.tomato_100};
 `;

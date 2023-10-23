@@ -46,26 +46,26 @@ export const light = {
     black_light: "#0D0C0F",
 
     dark_300: "#192227",
-    dark_400: "#C4c4cc",
+    dark_400: "#FBFAFC",
     dark_500: "#00131C",
-    dark_700: "#001119",
+    dark_700: "#EEEEF4",
     dark_800: "#0D161B",
 
     gray_100: "#C4C4CC",
     gray_200: "rgba(255, 255, 255, 0.3)",
 
-    light_400: "#C4C4CC",
+    light_400: "#000000",
     light_500: "#7C7C8A",
     gray_400: "rgba(255, 255, 255, 0.05)",
 
-    white: "#FFFFFF",
+    white: "#222326",
     white_100: "#E1E1E6",
 
     cake_100: "#065E7C",
     cake_200: "#82F3FF",
 
     tomato_red: "#FF002E",
-    tomato_100: "#750310",
+    tomato_100: "#AB4D55",
     tomato_200: "#92000E",
     tomato_300: "#AB222E",
     tomato_400: "#AB4D55",
