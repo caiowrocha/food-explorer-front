@@ -282,13 +282,12 @@ export const Profile = styled.div`
     z-index: 9999;
 
     border-radius: 1rem;
-    border: 1px solid red;
 
     background-color: ${({ theme }) => theme.colors.tomato_100};
     box-shadow: 0 1rem 2.5rem ${({ theme }) => theme.colors.gray_400};
   }
 
-  @media (min-width: 100px) and (max-width: 950px) {
+  @media (min-width: 100px) and (max-width: 736px) {
     .user-menu {
       display: flex;
       flex-direction: row;
