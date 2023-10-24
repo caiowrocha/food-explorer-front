@@ -1,11 +1,12 @@
-import { useState } from "react";
-import { useCustomTheme } from "../../hooks/useTheme";
 import styled from "styled-components";
 import "./styles.css";
 
-import { MoonIcon, SunIcon } from "../Icons";
-
 const Container = styled.span``;
+
+import { useState } from "react";
+import { useCustomTheme } from "../../hooks/useTheme";
+
+import { MoonIcon, SunIcon } from "../Icons";
 
 export function Switch({ toggle, isDarkTheme, ...rest }) {
   const { toggleTheme, currentTheme } = useCustomTheme();
@@ -15,24 +16,28 @@ export function Switch({ toggle, isDarkTheme, ...rest }) {
   const handleToggleTheme = (customTheme) => {
     toggleTheme(customTheme);
     setTheme(isDark ? "light" : "dark");
+    document.getElementById("themeEffect").classList.toggle("test");
   };
 
   return (
-    <>
-      <Container {...rest}>
-        <SunIcon />
-        <label className="toggle-switch">
-          <input
-            type="checkbox"
-            checked={currentTheme === "dark" ? true : false}
-            onChange={() => {
-              handleToggleTheme(theme);
-            }}
-          />
-          <span className="switch" />
-        </label>
-        <MoonIcon />
-      </Container>
-    </>
+    <Container {...rest}>
+      {currentTheme === "dark" ? (
+        <SunIcon
+          id="themeEffect"
+          className="changeThemeEffect"
+          onClick={() => {
+            handleToggleTheme(theme);
+          }}
+        />
+      ) : (
+        <MoonIcon
+          id="themeEffect"
+          className="changeThemeEffect"
+          onClick={() => {
+            handleToggleTheme(theme);
+          }}
+        />
+      )}
+    </Container>
   );
 }

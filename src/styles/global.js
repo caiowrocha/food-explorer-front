@@ -8,8 +8,9 @@ export default createGlobalStyle`
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-family: 'Poppins', sans-serif;
 
-    transition:.25s ease;
+    transition: all .25s ease;
   }
 
   :root {
@@ -17,19 +18,18 @@ export default createGlobalStyle`
   }
 
   body {
-    font-family: 'Poppins', sans-serif;
     background-color: ${({ theme }) => theme.colors.dark_400};
     color: ${({ theme }) => theme.colors.white};
-    font-size: 1.6rem;
   }  
+
+  body, input, textarea {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    outline: none;
+  }
 
   a {
     text-decoration: none;
-  }
-
-  input, textarea {
-    font-family: 'Roboto', sans-serif;
-    outline: none;
   }
 
   button, a {

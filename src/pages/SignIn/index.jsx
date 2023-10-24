@@ -34,42 +34,44 @@ export function SignIn() {
   }
 
   return (
-    <Container>
-      <Logo>
-        <div className="explorerLogo">
-          <img src={polygonLogo} alt="" />
-        </div>
-        <h1>Food explorer</h1>
-      </Logo>
+    <>
+      <Container>
+        <Logo>
+          <div className="explorerLogo">
+            <img src={polygonLogo} alt="" />
+          </div>
+          <h1>Food explorer</h1>
+        </Logo>
 
-      <Form>
-        <h1 className="title">Faça login</h1>
-        <div className="formInput">
-          <p>Email</p>
-          <Input
-            placeholder="Exemplo: exemplo@exemplo.com"
-            type="text"
-            onChange={(e) => setUserEmail(e.target.value)}
-          ></Input>
-        </div>
+        <Form>
+          <h1 className="title">Faça login</h1>
+          <div className="formInput">
+            <p>Email</p>
+            <Input
+              placeholder="Exemplo: exemplo@exemplo.com"
+              type="text"
+              onChange={(e) => setUserEmail(e.target.value)}
+            ></Input>
+          </div>
 
-        <div className="formInput">
-          <p>Password</p>
-          <Input
-            placeholder="No mínimo 6 caracteres"
-            type="password"
-            onChange={(e) => setUserPassword(e.target.value)}
-          ></Input>
-        </div>
+          <div className="formInput">
+            <p>Password</p>
+            <Input
+              placeholder="No mínimo 6 caracteres"
+              type="password"
+              onChange={(e) => setUserPassword(e.target.value)}
+            ></Input>
+          </div>
 
-        <Button
-          title={isLoading ? "Carregando..." : "Entrar"}
-          onClick={handleSignIn}
-          disabled={isLoading}
-        ></Button>
-        <Link to="/signUp">Criar conta</Link>
-      </Form>
-      <Switch className="switch"></Switch>
-    </Container>
+          <Button
+            title={isLoading ? "Carregando..." : "Entrar"}
+            onClick={handleSignIn}
+            disabled={isLoading}
+          ></Button>
+          <Link to="/signUp">Criar conta</Link>
+        </Form>
+        <Switch className="switch"></Switch>
+      </Container>
+    </>
   );
 }

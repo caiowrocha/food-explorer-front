@@ -59,7 +59,7 @@ export const Logo = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 3.8rem;
-  color: ${({ theme }) => theme.colors.cake_200};
+  /* color: ${({ theme }) => theme.colors.cake_200}; */
 
   h1 {
     color: ${({ theme }) => theme.colors.white};
