@@ -1,14 +1,14 @@
-import { Link, useNavigate } from "react-router-dom";
 /*
 Hooks
 */
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 /*
 Elements
 */
 import { Container, Form, Logo } from "./styles";
-import polygonLogo from "../../assets/polygon-logo.svg";
+import explorerLogo from "../../assets/polygon-logo.svg";
 
 /*
 Components
@@ -21,7 +21,7 @@ Services
 */
 import { api } from "../../services/api";
 
-export function SignUp() {
+export const SignUp = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
@@ -59,21 +59,21 @@ export function SignUp() {
   }
 
   function onReturn() {
-    navigate(-1);
+    navigate("/");
   }
 
   return (
     <Container>
       <Logo>
         <div className="explorerLogo">
-          <img src={polygonLogo} alt="" />
+          <img src={explorerLogo} alt="" />
         </div>
         <h1>Food explorer</h1>
       </Logo>
       <Form>
         <h1 className="title">Crie sua conta</h1>
         <div className="formInput">
-          <p>Nome</p>
+          <p>Nome:</p>
           <Input
             placeholder="Exemplo: Caio Rocha"
             type="text"
@@ -82,7 +82,7 @@ export function SignUp() {
         </div>
 
         <div className="formInput">
-          <p>E-mail</p>
+          <p>E-mail:</p>
           <Input
             placeholder="Exemplo: caio@email.com"
             type="text"
@@ -91,7 +91,7 @@ export function SignUp() {
         </div>
 
         <div className="formInput">
-          <p>Senha</p>
+          <p>Senha:</p>
           <Input
             placeholder="No mínimo 6 dígitos"
             type="password"
@@ -104,9 +104,9 @@ export function SignUp() {
           onClick={handleSignUp}
         ></Button>
 
-        <Link onClick={onReturn}>Já tenho uma conta</Link>
+        <Link to="/">Já tenho uma conta</Link>
       </Form>
       <Switch className="switch"></Switch>
     </Container>
   );
-}
+};

@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const Container = styled.footer`
   height: 7.7rem;
-
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
+
+  /* position: absolute;
+  bottom: 0;
+  left: 0; */
 
   background-color: ${({ theme }) => theme.colors.dark_600};
   align-items: center;
@@ -24,8 +24,8 @@ export const Content = styled.div`
   color: ${({ theme }) => theme.colors.gray_300};
 
   > p {
-    font-size: 1.4rem;
-    font-family: "DM Sans", sans-serif;
+    font-size: 1.2rem;
+    /* font-family: "DM Sans", sans-serif; */
     text-align: right;
   }
 `;
@@ -47,7 +47,6 @@ export const Logo = styled.div`
     font-family: "Roboto", sans-serif;
     font-size: clamp(1.6rem, 4vw, 2.2rem);
     font-weight: 700;
-    font-size: 2rem;
     flex-wrap: wrap;
   }
 `;

@@ -3,13 +3,15 @@ Hooks
 */
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
+import { useShoppingCart } from "../../hooks/useShoppingCart";
 
 /*
 Icons
 */
 import { IoExitOutline } from "react-icons/io5";
 import { FiSearch, FiUser, FiShoppingBag, FiHeart } from "react-icons/fi";
-import { BsReceipt } from "react-icons/bs";
+import { BsReceipt, BsHeartbreak } from "react-icons/bs";
+import { BiDish } from "react-icons/bi";
 
 /*
 Elements
@@ -34,16 +36,24 @@ Components
 */
 import { Switch } from "../Switch";
 
-export function Header({ searchDishes, favoritesDishesFilter, pathname }) {
+export const Header = ({
+  searchDishes,
+  favoritesDishesFilter,
+  pathName,
+  handleFavorites,
+}) => {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
 
-  const cart = [1, 2, 3, 4, 5];
-  const orders = [1, 2, 3, 4, 5];
+  const { shoppingCart, orders } = useShoppingCart();
 
   const handleSignOut = () => {
     signOut();
-    navigate(-1);
+    navigate("/");
+  };
+
+  const handleSearch = (dish) => {
+    searchDishes(dish);
   };
 
   const handleMobileMenu = () => {
@@ -56,10 +66,10 @@ export function Header({ searchDishes, favoritesDishesFilter, pathname }) {
     document.getElementById("user-menu").classList.toggle("isActive");
   };
 
-  const handleProfile = (pathname) => {
-    if (pathname === "/profile") {
+  const handleProfile = (pathName) => {
+    if (pathName === "/profile") {
       alert("Você já está na página do seu perfil");
-      return;
+      return true;
     }
   };
 
@@ -90,7 +100,6 @@ export function Header({ searchDishes, favoritesDishesFilter, pathname }) {
               <h1>Food explorer</h1>
             )}
           </Link>
-          {/* <Switch className="switchSmall" /> */}
         </Logo>
 
         <div className="navigation-menu" id="navigation-menu">
@@ -101,7 +110,7 @@ export function Header({ searchDishes, favoritesDishesFilter, pathname }) {
                 type="text"
                 placeholder="Busque nossas opções de pratos"
                 onChange={(e) => {
-                  handleSearch(e.target.value);
+                  searchDishes(e.target.value);
                 }}
               ></input>
             </label>
@@ -109,44 +118,52 @@ export function Header({ searchDishes, favoritesDishesFilter, pathname }) {
 
           {user.isAdmin ? (
             <Link to="/ordersIndex">
-              <Button type="button">
+              <Button type="button" className="">
                 <BsReceipt size={24} />
                 Ver pedidos <span>({orders.length})</span>
               </Button>
             </Link>
           ) : (
             <Link to="/shoppingCart">
-              <Button type="button" disabled={true}>
+              <Button type="button" disabled={true} className="">
                 <BsReceipt size={24} />
-                Pedidos<span>({cart.length})</span>
+                Pedidos<span>({shoppingCart.length})</span>
               </Button>
             </Link>
           )}
 
           {user.isAdmin ? (
-            <Profile onClick={handleUserOptionsMenu}>
-              <div className="user-menu testingPosition" id="user-menu">
+            <Profile
+              onClick={() => {
+                handleUserOptionsMenu();
+              }}
+            >
+              <div className="user-menu menuAdjust" id="user-menu">
                 <Link to="/profile">
                   <ButtonMenu>
-                    <FiShoppingBag size={24} />
+                    <FiUser size={24} />
                     Perfil
                   </ButtonMenu>
                 </Link>
 
                 <Link to="/orders">
-                  <ButtonMenu onClick={favoritesFilter}>
-                    <FiHeart size={24} />
+                  <ButtonMenu onClick={favoritesDishesFilter}>
+                    <FiShoppingBag size={24} />
                     Ver pedidos
                   </ButtonMenu>
                 </Link>
 
-                <Link to="/createdish">
+                <Link to="/createDish">
                   <ButtonMenu>
-                    <FiUser size={24} />
+                    <BiDish size={24} />
                     Novo Prato
                   </ButtonMenu>
                 </Link>
-                <Link onClick={signOut}>
+                <Link
+                  onClick={() => {
+                    handleSignOut();
+                  }}
+                >
                   <ButtonMenu>
                     <IoExitOutline size={24} />
                     Sair
@@ -156,20 +173,56 @@ export function Header({ searchDishes, favoritesDishesFilter, pathname }) {
               <FiUser className="iconHide" />
             </Profile>
           ) : (
-            <Profile onClick={handleUserOptionsMenu}>
+            <Profile
+              onClick={() => {
+                handleUserOptionsMenu();
+              }}
+            >
               <FiUser className="iconHide" />
               <div className="user-menu" id="user-menu">
                 <Link to="/profile">
                   <ButtonMenu
+                    disabled={pathName === "/profile"}
                     onClick={() => {
-                      handleProfile(pathname);
+                      if (handleProfile(pathName)) {
+                        return;
+                      }
+                      handleUserOptionsMenu();
                     }}
                   >
-                    <FiUser size={24} />
+                    <FiUser className="iconHide" size={24} />
                     Meu Perfil
                   </ButtonMenu>
                 </Link>
-                <Link to="/" onClick={handleSignOut}>
+
+                <Link to="/orders">
+                  <ButtonMenu>
+                    <FiShoppingBag size={24} />
+                    Meus Pedidos
+                  </ButtonMenu>
+                </Link>
+
+                <Link to="/">
+                  <ButtonMenu onClick={favoritesDishesFilter}>
+                    {handleFavorites ? (
+                      <>
+                        <FiHeart size={24} /> Meus favoritos
+                      </>
+                    ) : (
+                      <>
+                        <BsHeartbreak size={24} />
+                        Ver todos os Pratos
+                      </>
+                    )}
+                  </ButtonMenu>
+                </Link>
+
+                <Link
+                  to="/"
+                  onClick={() => {
+                    handleSignOut();
+                  }}
+                >
                   <ButtonMenu>
                     <IoExitOutline size={24} />
                     Sair
@@ -179,8 +232,8 @@ export function Header({ searchDishes, favoritesDishesFilter, pathname }) {
             </Profile>
           )}
         </div>
-        <Switch className="switchBig" />
+        <Switch className="switch" />
       </Content>
     </Container>
   );
-}
+};

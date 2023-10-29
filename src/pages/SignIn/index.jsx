@@ -1,16 +1,15 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-
 /*
-Custom Hooks
+Hooks
 */
 import { useAuth } from "../../hooks/useAuth";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 /*
 Elements
 */
 import { Container, Form, Logo } from "./styles";
-import polygonLogo from "../../assets/polygon-logo.svg";
+import explorerLogo from "../../assets/polygon-logo.svg";
 
 /*
 Components
@@ -19,7 +18,7 @@ import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { Switch } from "../../components/Switch";
 
-export function SignIn() {
+export const SignIn = () => {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
 
@@ -38,7 +37,7 @@ export function SignIn() {
       <Container>
         <Logo>
           <div className="explorerLogo">
-            <img src={polygonLogo} alt="" />
+            <img src={explorerLogo} alt="" />
           </div>
           <h1>Food explorer</h1>
         </Logo>
@@ -46,7 +45,7 @@ export function SignIn() {
         <Form>
           <h1 className="title">Faça login</h1>
           <div className="formInput">
-            <p>Email</p>
+            <p>Email:</p>
             <Input
               placeholder="Exemplo: exemplo@exemplo.com"
               type="text"
@@ -55,7 +54,7 @@ export function SignIn() {
           </div>
 
           <div className="formInput">
-            <p>Password</p>
+            <p>Senha:</p>
             <Input
               placeholder="No mínimo 6 caracteres"
               type="password"
@@ -74,4 +73,4 @@ export function SignIn() {
       </Container>
     </>
   );
-}
+};

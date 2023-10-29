@@ -1,10 +1,10 @@
 import { Container } from "./styles";
 
-export function Input({ icon: Icon, ...rest }) {
+export const Input = ({ icon: Icon, ...rest }) => {
   return (
     <Container>
-      {Icon && <Icon size={20} />}
+      {Icon ? <Icon size={20} /> : null}
       <input {...rest} />
     </Container>
   );
-}
+};

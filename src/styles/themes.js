@@ -25,6 +25,7 @@ export const dark = {
     gray_400: "rgba(255, 255, 255, 0.05)",
 
     white: "#FFFFFF",
+
     white_100: "#E1E1E6",
 
     cake_100: "#065E7C",
@@ -35,6 +36,18 @@ export const dark = {
     tomato_200: "#92000E",
     tomato_300: "#AB222E",
     tomato_400: "#AB4D55",
+
+    text: "#FFFFFF",
+    text_background_button: "#E1E1E6",
+    text_description: "rgba(255, 255, 255, 0.3)",
+    text_cake: "#82F3FF",
+    background_tomato: "#750310",
+    svg_color: "rgba(255, 255, 255, 0.3)",
+    banner_background_color: "#091E26",
+    banner_background_color_darker: "#00131C",
+    swiper_background_color: "#000A0F",
+    header_background: "#00111A",
+    ingredients_tag: "#192227",
   },
 };
 
@@ -52,6 +65,7 @@ export const light = {
     dark_400: "#FBFAFC",
     dark_500: "#00131C",
     dark_700: "#EEEEF4",
+    dark_600: "#E1E1E6",
     dark_800: "#0D161B",
 
     gray_100: "#C4C4CC",
@@ -61,7 +75,7 @@ export const light = {
     light_500: "#7C7C8A",
     gray_400: "rgba(255, 255, 255, 0.05)",
 
-    white: "#222326",
+    white: "#FFFFFF",
     white_100: "#E1E1E6",
 
     cake_100: "#065E7C",
@@ -72,5 +86,18 @@ export const light = {
     tomato_200: "#92000E",
     tomato_300: "#AB222E",
     tomato_400: "#AB4D55",
+
+    text: "#222326",
+    text_cake: "#065E7C",
+    text_description: "rgba(0, 0, 0, 0.7)",
+    body_background: "#FBFAFC",
+    text_background_button: "#E1E1E6",
+    background_tomato: "#AB4D55",
+    svg_color: "rgba(0, 0, 0, 0.7)",
+    banner_background_color: "#091E26",
+    banner_background_color_darker: "#00131C",
+    swiper_background_color: "#FAFAFC",
+    header_background: "#FBFAFC",
+    ingredients_tag: "rgba(0, 0, 0, 0.7)",
   },
 };

@@ -7,7 +7,7 @@ export const Container = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.dark_600};
+  background-color: ${({ theme }) => theme.colors.header_background};
   position: sticky;
   top: 0;
   z-index: 9999;
@@ -24,9 +24,13 @@ export const Container = styled.header`
     }
   }
 
-  .switchBig {
+  .switch {
     margin-top: 0.42rem;
     align-self: center;
+  }
+  /* Test */
+  .hideFull {
+    margin-top: -16rem;
   }
 `;
 
@@ -55,11 +59,10 @@ export const Content = styled.div`
 
   .navigation-bar {
     display: block;
-
     margin: 0.5rem auto;
     width: 2.5rem;
     height: 0.3rem;
-    background-color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.text};
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
   }
@@ -77,12 +80,12 @@ export const Content = styled.div`
       z-index: 9999;
 
       width: 100%;
-      height: 80%;
+      /* Test: 80% */
+      height: 100%;
       gap: 2rem;
       border-radius: 0 0 2rem 2rem;
 
-      padding: 3.6rem;
-
+      padding: 3.2rem;
       background-color: ${({ theme }) => theme.colors.dark_700};
       box-shadow: 0 0.1rem 2.7rem ${({ theme }) => theme.colors.gray_400};
     }
@@ -118,7 +121,7 @@ export const Content = styled.div`
 export const Logo = styled.div`
   display: flex;
   align-items: center;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.text};
   position: relative;
 
   .explorerLogo {
@@ -144,9 +147,9 @@ export const Logo = styled.div`
   .span-in-div {
     position: absolute;
     right: 0;
-
     font-size: 1.2rem;
-    color: ${({ theme }) => theme.colors.blue_100};
+    margin-top: -1rem;
+    color: ${({ theme }) => theme.colors.text_cake};
   }
 
   a {
@@ -174,7 +177,7 @@ export const Search = styled.div`
     padding: 1.6rem;
     text-align: left;
     border: 0;
-    color: ${({ theme }) => theme.colors.dark_900};
+    color: ${({ theme }) => theme.colors.svg_color};
     background: transparent;
 
     &:placeholder {
@@ -196,7 +199,7 @@ export const Search = styled.div`
   }
 
   svg {
-    color: ${({ theme }) => theme.colors.gray_200};
+    color: ${({ theme }) => theme.colors.svg_color};
   }
 `;
 
@@ -216,8 +219,8 @@ export const Button = styled.button`
 
   font-size: 1.4rem;
 
-  background-color: ${({ theme }) => theme.colors.tomato_100};
-  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.background_tomato};
+  color: ${({ theme }) => theme.colors.text_background_button};
 
   padding: 0 3rem;
 `;
@@ -230,12 +233,13 @@ export const Logout = styled(Link)`
   background: none;
 
   > svg {
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.text};
     font-size: 3.2rem;
   }
 
   > svg:hover {
     animation: scalingUpAndDown 0.5s ease-in-out both;
+    filter: brightness(0.9);
   }
 `;
 
@@ -251,7 +255,7 @@ export const Profile = styled.div`
   cursor: pointer;
 
   > svg {
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.text};
     font-size: 3.2rem;
   }
 
@@ -259,12 +263,19 @@ export const Profile = styled.div`
     animation: scalingUpAndDown 0.5s ease-in-out both;
   }
 
-  .testinPosition {
-    /* border: 1px solid red; */
-  }
-
   .user-menu {
     display: none;
+  }
+
+  .user-menu-mobile {
+    display: none;
+  }
+
+  .user-menu-mobile.isActive {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3rem;
   }
 
   .user-menu.isActive {
@@ -283,16 +294,40 @@ export const Profile = styled.div`
 
     border-radius: 1rem;
 
-    background-color: ${({ theme }) => theme.colors.tomato_100};
+    background-color: ${({ theme }) => theme.colors.background_tomato};
     box-shadow: 0 1rem 2.5rem ${({ theme }) => theme.colors.gray_400};
   }
 
-  @media (min-width: 100px) and (max-width: 736px) {
+  .user-menu.isActive.menuAdjust {
+    position: absolute;
+    margin-top: 28rem;
+    padding-bottom: 60rem;
+    gap: 1rem;
+    padding: 1rem;
+
+    z-index: 9999;
+    border-radius: 1rem;
+
+    background-color: ${({ theme }) => theme.colors.background_tomato};
+    box-shadow: 0 1rem 2.5rem ${({ theme }) => theme.colors.gray_400};
+  }
+
+  @media (min-width: 100px) and (max-width: 768px) {
     .user-menu {
+      margin-top: -36rem;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       gap: 3rem;
+    }
+    .user-menu.menuAdjust {
+      /* Test: -12rem */
+      margin-top: -48rem;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      width: 100%;
     }
     .iconHide {
       display: none;
@@ -314,6 +349,6 @@ export const ButtonMenu = styled.button`
 
   font-size: 1.4rem;
 
-  color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme }) => theme.colors.tomato_100};
+  color: ${({ theme }) => theme.colors.text_background_button};
+  background-color: ${({ theme }) => theme.colors.background_tomato};
 `;

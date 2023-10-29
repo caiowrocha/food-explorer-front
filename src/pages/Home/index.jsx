@@ -1,11 +1,192 @@
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import { useState, useEffect } from "react";
+import { useGetFavorites } from "../../hooks/useFavoritesDishes";
+
+import { api } from "../../services/api";
+import { Card } from "../../components/Card";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
+import { Container, Content, Banner } from "./styles";
+import mainIngredients from "../../assets/ingredients-main.png";
 
-export function Home() {
+export const Home = () => {
+  const { favoriteDishes } = useGetFavorites();
+  const [searchDishes, setSearchDishes] = useState("");
+  const [dishes, setDishes] = useState([]);
+  const [temporaryDishes, setTemporaryDishes] = useState([]);
+  const [favorites, setFavorites] = useState(true);
+
+  const handleFavorites = async (favorites) => {
+    if (typeof favoriteDishes === "undefined" || !favoriteDishes.length) {
+      return;
+    } else {
+      setDishes(favoriteDishes);
+      setFavorites(false);
+    }
+    if (dishes === favoriteDishes) {
+      setDishes(temporaryDishes);
+      setFavorites(true);
+    }
+  };
+
+  useEffect(() => {
+    const getDishes = async () => {
+      const response = await api.get(`/dishes?title=${searchDishes}`);
+      setDishes(response.data);
+      setTemporaryDishes(response.data);
+    };
+    getDishes();
+  }, [searchDishes, !favoriteDishes.length]);
+
   return (
-    <>
-      <Header />
+    <Container>
+      <Header
+        searchDishes={setSearchDishes}
+        favoritesDishesFilter={handleFavorites}
+        handleFavorites={favorites}
+      />
+      <Content>
+        <Banner>
+          <img src={mainIngredients} alt="Ingredientes Principais" />
+          <div className="banner">
+            <div className="title">
+              <h1>Sabores inigualáveis</h1>
+              <span>
+                Sinta o cuidado do preparo com ingredientes selecionados
+              </span>
+            </div>
+          </div>
+        </Banner>
+
+        <div className="cards">
+          <p>Refeições</p>
+          {dishes.filter((dish) => dish.category == "maincourse").length > 0 ? (
+            <Swiper
+              grabCursor={true}
+              loop={true}
+              slidesPerView={1}
+              spaceBetween={10}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 40,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 180,
+                },
+              }}
+              navigation={true}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              modules={[Pagination, Navigation, Autoplay]}
+              className="mySwiper"
+            >
+              {dishes
+                .filter((dish) => dish.category == "maincourse")
+                .map((element, index) => (
+                  <SwiperSlide key={String(index)}>
+                    <Card data={element} />
+                  </SwiperSlide>
+                ))}
+            </Swiper>
+          ) : null}
+
+          <p>Sobremesas</p>
+          {dishes.filter((dish) => dish.category == "dessert").length > 0 ? (
+            <Swiper
+              grabCursor={true}
+              loop={true}
+              slidesPerView={1}
+              spaceBetween={10}
+              navigation={true}
+              autoplay={{
+                delay: 3500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              modules={[Pagination, Navigation, Autoplay]}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 40,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 180,
+                },
+              }}
+              className="mySwiper"
+            >
+              {dishes
+                .filter((dish) => dish.category == "dessert")
+                .map((dish) => (
+                  <SwiperSlide key={String(dish.id)}>
+                    <Card data={dish} />
+                  </SwiperSlide>
+                ))}
+            </Swiper>
+          ) : null}
+
+          <p>Bebidas</p>
+          {dishes.filter((dish) => dish.category == "drinks").length > 0 ? (
+            <Swiper
+              grabCursor={true}
+              loop={true}
+              slidesPerView={1}
+              spaceBetween={10}
+              navigation={true}
+              modules={[Pagination, Navigation, Autoplay]}
+              className="mySwiper"
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 40,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 180,
+                },
+              }}
+              autoplay={{
+                delay: 3500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+            >
+              {dishes
+                .filter((dish) => dish.category == "drinks")
+                .map((dish) => (
+                  <SwiperSlide key={String(dish.id)}>
+                    <Card data={dish} />
+                  </SwiperSlide>
+                ))}
+            </Swiper>
+          ) : null}
+        </div>
+      </Content>
       <Footer />
-    </>
+    </Container>
   );
-}
+};

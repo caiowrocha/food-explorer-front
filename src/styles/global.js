@@ -10,7 +10,9 @@ export default createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     font-family: 'Poppins', sans-serif;
 
-    transition: all .25s ease;
+    transition: color .15s ease, background .15s ease;
+
+    ${"" /* transition: all .15s ease; */}
   }
 
   :root {
@@ -19,7 +21,7 @@ export default createGlobalStyle`
 
   body {
     background-color: ${({ theme }) => theme.colors.dark_400};
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.text};
   }  
 
   body, input, textarea {

@@ -1,6 +1,6 @@
 import { useCustomTheme } from "../../hooks/useTheme";
 
-export function MoonIcon({ ...rest }) {
+export const MoonIcon = ({ ...rest }) => {
   const { currentTheme } = useCustomTheme();
   return (
     <div {...rest}>
@@ -12,9 +12,9 @@ export function MoonIcon({ ...rest }) {
       </svg>
     </div>
   );
-}
+};
 
-export function SunIcon({ ...rest }) {
+export const SunIcon = ({ ...rest }) => {
   const { currentTheme } = useCustomTheme();
   return (
     <div {...rest}>
@@ -26,4 +26,4 @@ export function SunIcon({ ...rest }) {
       </svg>
     </div>
   );
-}
+};

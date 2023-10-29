@@ -1,7 +1,7 @@
 import { Container, Content, Logo } from "./style";
 import explorerLogoGray from "../../assets/polygon-logo-gray.svg";
 
-export function Footer() {
+export const Footer = () => {
   return (
     <Container>
       <Content>
@@ -15,4 +15,4 @@ export function Footer() {
       </Content>
     </Container>
   );
-}
+};

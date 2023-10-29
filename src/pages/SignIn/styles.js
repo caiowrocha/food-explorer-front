@@ -41,7 +41,7 @@ export const Form = styled.form`
   > a {
     margin-top: 3.2rem;
     text-align: center;
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.text};
   }
 
   > .formInput {
@@ -61,7 +61,7 @@ export const Logo = styled.div`
   color: ${({ theme }) => theme.colors.cake_200};
 
   h1 {
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.text};
     padding-left: 2rem;
     font-size: clamp(2.6rem, 3rem + 1.3vw, 4rem);
     white-space: nowrap;

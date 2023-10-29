@@ -7,7 +7,7 @@ export const Container = styled.div`
 
   input {
     width: 100%;
-    border: 1px solid ${({ theme }) => theme.colors.white};
+    border: 1px solid ${({ theme }) => theme.colors.text};
     padding: 1.6rem 1.4rem;
     border-radius: 0.5rem;
     background: transparent;
