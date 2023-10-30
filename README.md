@@ -37,6 +37,20 @@
 >> npm run dev
 ```
 
+3. Credentials:<br>
+
+- User:<br>
+```
+user@email.com
+123456
+```
+
+- Admin:<br>
+```
+admin@email.com
+******
+```
+
 ### Author
 
 - Design: [Rocketseat](https://www.rocketseat.com.br/)
