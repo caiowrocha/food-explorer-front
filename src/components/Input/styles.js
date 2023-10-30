@@ -4,14 +4,13 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-
+  background: ${({ theme }) => theme.colors.header_background};
   input {
     width: 100%;
-    border: 1px solid ${({ theme }) => theme.colors.text};
     padding: 1.6rem 1.4rem;
     border-radius: 0.5rem;
     background: transparent;
-
+    border: none;
     font-size: 1.8rem;
     line-height: 2.4rem;
     color: ${({ theme }) => theme.colors.light_500};

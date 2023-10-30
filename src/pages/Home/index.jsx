@@ -40,6 +40,7 @@ export const Home = () => {
       const response = await api.get(`/dishes?title=${searchDishes}`);
       setDishes(response.data);
       setTemporaryDishes(response.data);
+      console.log(dishes);
     };
     getDishes();
   }, [searchDishes, !favoriteDishes.length]);
@@ -66,40 +67,40 @@ export const Home = () => {
 
         <div className="cards">
           <p>Refeições</p>
-          {dishes.filter((dish) => dish.category == "maincourse").length > 0 ? (
+          {dishes.filter((dish) => dish.category == "dish").length > 0 ? (
             <Swiper
               grabCursor={true}
               loop={true}
               slidesPerView={1}
               spaceBetween={10}
-              breakpoints={{
-                640: {
-                  slidesPerView: 2,
-                  spaceBetween: 20,
-                },
-                768: {
-                  slidesPerView: 3,
-                  spaceBetween: 40,
-                },
-                1024: {
-                  slidesPerView: 3,
-                  spaceBetween: 180,
-                },
-              }}
               navigation={true}
               autoplay={{
-                delay: 2500,
+                delay: 3500,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
               }}
               modules={[Pagination, Navigation, Autoplay]}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 40,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 80,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 240,
+                },
+              }}
               className="mySwiper"
             >
               {dishes
-                .filter((dish) => dish.category == "maincourse")
-                .map((element, index) => (
-                  <SwiperSlide key={String(index)}>
-                    <Card data={element} />
+                .filter((dish) => dish.category == "dish")
+                .map((dish) => (
+                  <SwiperSlide key={String(dish.id)}>
+                    <Card data={dish} />
                   </SwiperSlide>
                 ))}
             </Swiper>
@@ -122,15 +123,15 @@ export const Home = () => {
               breakpoints={{
                 640: {
                   slidesPerView: 2,
-                  spaceBetween: 20,
+                  spaceBetween: 40,
                 },
                 768: {
                   slidesPerView: 3,
-                  spaceBetween: 40,
+                  spaceBetween: 80,
                 },
                 1024: {
                   slidesPerView: 3,
-                  spaceBetween: 180,
+                  spaceBetween: 240,
                 },
               }}
               className="mySwiper"
@@ -158,15 +159,15 @@ export const Home = () => {
               breakpoints={{
                 640: {
                   slidesPerView: 2,
-                  spaceBetween: 20,
+                  spaceBetween: 40,
                 },
                 768: {
                   slidesPerView: 3,
-                  spaceBetween: 40,
+                  spaceBetween: 80,
                 },
                 1024: {
                   slidesPerView: 3,
-                  spaceBetween: 180,
+                  spaceBetween: 240,
                 },
               }}
               autoplay={{

@@ -1,44 +1,47 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    display: flex;
-    align-items: center;
-    
-    padding: 0 1.6rem;
-    border-radius: 0.8rem;
-    border: ${({ theme, isNew }) => isNew ? `1px dashed ${theme.COLORS.GRAY_300}` : "none"};
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding: 0 0.6rem;
+  border-radius: 0.8rem;
+  color: ${({ theme }) => theme.colors.svg_color};
+  border: ${({ theme, isnew }) =>
+    isnew ? `1px dashed ${theme.colors.svg_color}` : "none"};
+  background-color: ${({ theme, isnew }) =>
+    isnew ? "transparent" : theme.colors.ingredients_background};
 
-    color: ${({ theme }) => theme.COLORS.GRAY_300};
-    background-color: ${({ theme, isNew }) => isNew ? "transparent" : theme.COLORS.BLUE_300};
-    
-    svg {
-        vertical-align: middle;
+  svg {
+    vertical-align: middle;
+  }
+
+  > button {
+    border: none;
+    background: none;
+    margin-left: -2.2rem;
+  }
+
+  .button-delete {
+    color: ${({ theme }) => theme.colors.svg_color};
+  }
+
+  .button-add {
+    color: ${({ theme }) => theme.colors.text};
+  }
+
+  > input {
+    max-width: 11rem;
+    height: 3.2rem;
+    text-align: center;
+
+    border: none;
+
+    color: ${({ theme }) => theme.colors.text};
+    background: transparent;
+
+    &::placeholder {
+      color: ${({ theme }) => theme.colors.svg_color};
     }
-
-    > button {
-        border: none;
-        background: none;
-    }
-
-    .button-delete {
-        color: ${({ theme }) => theme.COLORS.RED};
-    }
-
-    .button-add {
-        color: ${({ theme }) => theme.COLORS.WHITE};
-    }
-
-    > input {
-        max-width: 13rem;
-        height: 2.8rem;
-
-        border: none;
-        
-        color: ${({ theme }) => theme.COLORS.WHITE};
-        background: transparent;
-
-        &::placeholder {
-            color: ${({ theme }) => theme.COLORS.GRAY_300};
-        }
-    }
+  }
 `;

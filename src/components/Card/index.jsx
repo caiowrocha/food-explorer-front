@@ -2,6 +2,7 @@
 Hooks
 */
 import { Link } from "react-router-dom";
+import { useShoppingCart } from "../../hooks/useShoppingCart";
 import { useGetFavorites } from "../../hooks/useFavoritesDishes";
 import { useAuth } from "../../hooks/useAuth";
 import { useState } from "react";
@@ -27,6 +28,7 @@ import placeholderImg from "../../assets/not-found.svg";
 
 export const Card = ({ data, ...rest }) => {
   const { user } = useAuth();
+  const { handleAddDish } = useShoppingCart();
 
   const { favoriteDishes, includeFavoriteDish, removeFavoriteDish } =
     useGetFavorites();
@@ -34,6 +36,10 @@ export const Card = ({ data, ...rest }) => {
   const imageURL = data.image
     ? `${api.defaults.baseURL}/files/${data.image}`
     : null;
+
+  console.log(data.image);
+
+  console.log(imageURL);
 
   const dishIsFavorite = favoriteDishes.some(
     (dish) => dish.title === data.title
@@ -62,9 +68,11 @@ export const Card = ({ data, ...rest }) => {
       {user.isAdmin ? (
         <Content>
           <button className="editDishButton">
-            <Link to={`/editDish/${data.id}`}>
-              <AiOutlineEdit className="setColor" />
-            </Link>
+            <span>
+              <Link to={`/editDish/${data.id}`}>
+                <AiOutlineEdit className="setColor" />
+              </Link>
+            </span>
           </button>
           <div className="wrapper">
             <img src={imageURL} alt="Imagem do prato" />
@@ -117,7 +125,7 @@ export const Card = ({ data, ...rest }) => {
 
               <Button
                 title="incluir"
-                onClick={() => handleAddDishToCart(data, amount, imageURL)}
+                onClick={() => handleAddDish(data, amount, imageURL)}
                 style={{ height: 56, width: 92 }}
               />
             </ShoppingCard>

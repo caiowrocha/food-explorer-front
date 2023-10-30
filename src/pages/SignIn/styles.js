@@ -52,6 +52,10 @@ export const Form = styled.form`
     margin-bottom: 0.8rem;
     color: ${({ theme }) => theme.colors.light_400};
   }
+
+  .border {
+    border: 1px solid ${({ theme }) => theme.colors.svg_color};
+  }
 `;
 
 export const Logo = styled.div`

@@ -75,6 +75,7 @@ export const SignUp = () => {
         <div className="formInput">
           <p>Nome:</p>
           <Input
+            className="border"
             placeholder="Exemplo: Caio Rocha"
             type="text"
             onChange={(e) => setUserName(e.target.value)}
@@ -84,6 +85,7 @@ export const SignUp = () => {
         <div className="formInput">
           <p>E-mail:</p>
           <Input
+            className="border"
             placeholder="Exemplo: caio@email.com"
             type="text"
             onChange={(e) => setUserEmail(e.target.value)}
@@ -93,6 +95,7 @@ export const SignUp = () => {
         <div className="formInput">
           <p>Senha:</p>
           <Input
+            className="border"
             placeholder="No mínimo 6 dígitos"
             type="password"
             onChange={(e) => setUserPassword(e.target.value)}

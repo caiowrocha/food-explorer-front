@@ -11,8 +11,7 @@ export default createGlobalStyle`
     font-family: 'Poppins', sans-serif;
 
     transition: color .15s ease, background .15s ease;
-
-    ${"" /* transition: all .15s ease; */}
+    transition: all .1s ease;
   }
 
   :root {

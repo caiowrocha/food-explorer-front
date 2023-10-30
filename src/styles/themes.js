@@ -48,6 +48,7 @@ export const dark = {
     swiper_background_color: "#000A0F",
     header_background: "#00111A",
     ingredients_tag: "#192227",
+    ingredients_background: "#7C7C8A",
   },
 };
 

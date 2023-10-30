@@ -285,7 +285,7 @@ export const Profile = styled.div`
     transition: 0.4s;
 
     position: absolute;
-    margin-top: 18rem;
+    margin-top: 28rem;
     padding-bottom: 60rem;
     gap: 1rem;
     padding: 1rem;
@@ -314,11 +314,17 @@ export const Profile = styled.div`
 
   @media (min-width: 100px) and (max-width: 768px) {
     .user-menu {
-      margin-top: -36rem;
+      /* margin-top: -36rem;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      gap: 3rem;
+      gap: 3rem; */
+      margin-top: -48rem;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      width: 100%;
     }
     .user-menu.menuAdjust {
       /* Test: -12rem */

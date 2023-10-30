@@ -53,16 +53,19 @@ export const Form = styled.form`
     margin-bottom: 0.8rem;
     color: ${({ theme }) => theme.colors.light_400};
   }
+
+  .border {
+    border: 1px solid ${({ theme }) => theme.colors.svg_color};
+  }
 `;
 
 export const Logo = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 3.8rem;
-  /* color: ${({ theme }) => theme.colors.cake_200}; */
 
   h1 {
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.text};
     padding-left: 2rem;
     font-size: clamp(2.6rem, 3rem + 1.3vw, 4rem);
     white-space: nowrap;

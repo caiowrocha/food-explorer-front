@@ -47,6 +47,7 @@ export const SignIn = () => {
           <div className="formInput">
             <p>Email:</p>
             <Input
+              className="border"
               placeholder="Exemplo: exemplo@exemplo.com"
               type="text"
               onChange={(e) => setUserEmail(e.target.value)}
@@ -56,6 +57,7 @@ export const SignIn = () => {
           <div className="formInput">
             <p>Senha:</p>
             <Input
+              className="border"
               placeholder="No mínimo 6 caracteres"
               type="password"
               onChange={(e) => setUserPassword(e.target.value)}

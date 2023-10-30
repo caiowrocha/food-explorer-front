@@ -1,1 +1,3 @@
-<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg"><linearGradient id="lg"><stop offset="0%" stop-color="#b5b5b5"/><stop offset="100%" stop-color="#fcffff"/></linearGradient><rect x="2" y="2" width="296" height="296" style="fill:url(#lg);stroke:#0a72ab;stroke-width:2"/><text x="50%" y="50%" font-size="18" text-anchor="middle" alignment-baseline="middle" font-family="monospace, sans-serif" fill="#2f60a1">dish image</text></svg>
+<svg width="43" height="48" viewBox="0 0 43 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21.5706 0.216553L42.9737 12.0919V35.8426L21.5706 47.7179L0.167517 35.8426V12.0919L21.5706 0.216553Z" fill="#065E7C"/>
+</svg>

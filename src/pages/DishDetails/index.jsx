@@ -39,8 +39,9 @@ export const Details = () => {
   const [dishDetails, setDishDetails] = useState(null);
   const [amount, setAmount] = useState(1);
 
-  const imageURL =
-    dishDetails && `${api.defaults.baseURL}/files/${dishDetails.image}`;
+  const imageURL = dishDetails
+    ? `${api.defaults.baseURL}/files/${dishDetails.dish.image}`
+    : null;
 
   const handleReturn = () => {
     navigate(-1);
@@ -65,7 +66,6 @@ export const Details = () => {
   useEffect(() => {
     async function getDishDetails() {
       const response = await api.get(`/dishes/${params.id}`);
-      console.log(response.data);
       setDishDetails(response.data);
     }
     getDishDetails();
@@ -78,7 +78,7 @@ export const Details = () => {
         <Content>
           <Link>
             <ButtonText
-              title={"Voltar"}
+              title={"voltar"}
               icon={RiArrowLeftSLine}
               onClick={handleReturn}
             ></ButtonText>

@@ -118,16 +118,16 @@ export const Header = ({
 
           {user.isAdmin ? (
             <Link to="/ordersIndex">
-              <Button type="button" className="">
+              <Button type="button" disabled={true}>
                 <BsReceipt size={24} />
-                Ver pedidos <span>({orders.length})</span>
+                Ver Pedidos <span>({orders.length})</span>
               </Button>
             </Link>
           ) : (
             <Link to="/shoppingCart">
               <Button type="button" disabled={true} className="">
-                <BsReceipt size={24} />
-                Pedidos<span>({shoppingCart.length})</span>
+                <FiShoppingBag size={24} />
+                Meu Carrinho<span>({shoppingCart.length})</span>
               </Button>
             </Link>
           )}
@@ -140,16 +140,24 @@ export const Header = ({
             >
               <div className="user-menu menuAdjust" id="user-menu">
                 <Link to="/profile">
-                  <ButtonMenu>
+                  <ButtonMenu
+                    disabled={pathName === "/profile"}
+                    onClick={() => {
+                      if (handleProfile(pathName)) {
+                        return;
+                      }
+                      handleUserOptionsMenu();
+                    }}
+                  >
                     <FiUser size={24} />
                     Perfil
                   </ButtonMenu>
                 </Link>
 
                 <Link to="/orders">
-                  <ButtonMenu onClick={favoritesDishesFilter}>
-                    <FiShoppingBag size={24} />
-                    Ver pedidos
+                  <ButtonMenu onClick={favoritesDishesFilter} disabled={true}>
+                    <BsReceipt size={24} />
+                    Ver Pedidos
                   </ButtonMenu>
                 </Link>
 
@@ -160,6 +168,7 @@ export const Header = ({
                   </ButtonMenu>
                 </Link>
                 <Link
+                  to="/"
                   onClick={() => {
                     handleSignOut();
                   }}
@@ -190,20 +199,26 @@ export const Header = ({
                       handleUserOptionsMenu();
                     }}
                   >
-                    <FiUser className="iconHide" size={24} />
+                    <FiUser className="" size={24} />
                     Meu Perfil
                   </ButtonMenu>
                 </Link>
 
                 <Link to="/orders">
-                  <ButtonMenu>
-                    <FiShoppingBag size={24} />
+                  <ButtonMenu disabled={true}>
+                    <BsReceipt size={24} />
                     Meus Pedidos
                   </ButtonMenu>
                 </Link>
 
                 <Link to="/">
-                  <ButtonMenu onClick={favoritesDishesFilter}>
+                  <ButtonMenu
+                    onClick={() => {
+                      favoritesDishesFilter();
+                      handleMobileMenu();
+                      handleUserOptionsMenu();
+                    }}
+                  >
                     {handleFavorites ? (
                       <>
                         <FiHeart size={24} /> Meus favoritos

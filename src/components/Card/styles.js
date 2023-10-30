@@ -94,8 +94,8 @@ export const Content = styled.div`
     font-family: "Roboto", sans-serif;
     font-size: 3.2rem;
     font-weight: 400;
-    color: ${({ theme }) => theme.colors.cake_100};
-
+    color: ${({ theme }) => theme.colors.text_cake};
+    margin-top: 1.6rem;
     margin-bottom: 1.6rem;
   }
 `;
@@ -125,7 +125,7 @@ export const ShoppingCard = styled.div`
   p {
     font-weight: 700;
     line-height: 160%;
-    color: ${({ theme }) => theme.colors.cake_200};
+    color: ${({ theme }) => theme.colors.text_description};
     text-align: center;
   }
 `;
