@@ -1,3 +1,6 @@
+/*
+Elements
+*/
 import { Container } from "./styles";
 
 export const ButtonText = ({ icon: Icon, title, ...rest }) => {

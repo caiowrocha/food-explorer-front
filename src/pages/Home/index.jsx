@@ -1,17 +1,33 @@
+/*
+Swiper
+*/
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+/*
+Hooks
+*/
 import { useState, useEffect } from "react";
 import { useGetFavorites } from "../../hooks/useFavoritesDishes";
 
+/*
+Services
+*/
 import { api } from "../../services/api";
+
+/*
+Components
+*/
 import { Card } from "../../components/Card";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
+
+/*
+Elements
+*/
 import { Container, Content, Banner } from "./styles";
 import mainIngredients from "../../assets/ingredients-main.png";
 

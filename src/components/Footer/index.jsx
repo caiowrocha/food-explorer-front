@@ -1,3 +1,6 @@
+/*
+Elements
+*/
 import { Container, Content, Logo } from "./style";
 import explorerLogoGray from "../../assets/polygon-logo-gray.svg";
 

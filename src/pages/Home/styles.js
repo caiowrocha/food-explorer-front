@@ -55,7 +55,7 @@ export const Content = styled.div`
 
   .swiper-button-next:hover,
   .swiper-button-prev:hover {
-    animation: scaleUpDown 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    animation: scaleUpDown 0.4s cubic-bezier(0.17, 0.67, 0.83, 0.67) both;
   }
 
   .swiper-button-prev {

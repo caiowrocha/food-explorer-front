@@ -1,5 +1,7 @@
+/*
+Elements
+*/
 import { Container } from "./styles";
-
 import { FiPlus, FiX } from "react-icons/fi";
 
 export function IngredientsTag({ isnew, value, onClick, ...rest }) {
@@ -14,30 +16,24 @@ export function IngredientsTag({ isnew, value, onClick, ...rest }) {
       />
 
       <datalist id="ingredientName">
-        <option value="Aguardente">Aguardente</option>
         <option value="Alface">Alface</option>
         <option value="Ameixa">Ameixa</option>
         <option value="Amêndoas">Amêndoas</option>
         <option value="Aniz">Aniz</option>
-        <option value="Aspargo">Aspargo</option>
-        <option value="Batata">Batata</option>
         <option value="Bacon">Bacon</option>
         <option value="Café">Café</option>
         <option value="Camarão">Camarão</option>
         <option value="Canela">Canela</option>
         <option value="Cebola">Cebola</option>
         <option value="Claras">Claras</option>
-        <option value="Coca-Cola">Coca-Cola</option>
         <option value="Damasco">Damasco</option>
         <option value="Farinha">Farinha</option>
-        <option value="Filé">Filé</option>
         <option value="Limão">Limão</option>
         <option value="Maçã">Maçã</option>
         <option value="Manjericão">Manjericão</option>
         <option value="Maracujá">Maracujá</option>
         <option value="Massa">Massa</option>
         <option value="Morango">Morango</option>
-        <option value="Negroni">Negroni</option>
         <option value="Pão Naan">Pão Naan</option>
         <option value="Pão">Pão</option>
         <option value="Pepino">Pepino</option>
@@ -47,7 +43,6 @@ export function IngredientsTag({ isnew, value, onClick, ...rest }) {
         <option value="Queijo">Queijo</option>
         <option value="Rabanete">Rabanete</option>
         <option value="Rucula">Rucula</option>
-        <option value="Sorvete">Sorvete</option>
         <option value="Tomate">Tomate</option>
         <option value="Whiskey">Whiskey</option>
       </datalist>
