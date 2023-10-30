@@ -1,6 +1,6 @@
 # 🥗 [Food Explorer](https://food-explorer-front-flame.vercel.app/)
 
-<img src="./design/foodexplorer-thumbnail.png" width="550" />
+<img src="./src/design/foodexplorer-thumbnail.png" width="550" />
 
 
 ## Table of Contents
