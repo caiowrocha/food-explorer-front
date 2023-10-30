@@ -73,7 +73,7 @@ export const Content = styled.div`
 
   .product-title {
     font-weight: 700;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     color: ${({ theme }) => theme.colors.text};
 
     margin-bottom: 1.8rem;

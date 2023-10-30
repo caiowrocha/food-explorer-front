@@ -69,6 +69,9 @@ export const Home = () => {
           <p>Refeições</p>
           {dishes.filter((dish) => dish.category == "dish").length > 0 ? (
             <Swiper
+              style={{
+                "--swiper-navigation-size": "30px",
+              }}
               grabCursor={true}
               loop={true}
               slidesPerView={1}
@@ -109,6 +112,9 @@ export const Home = () => {
           <p>Sobremesas</p>
           {dishes.filter((dish) => dish.category == "dessert").length > 0 ? (
             <Swiper
+              style={{
+                "--swiper-navigation-size": "30px",
+              }}
               grabCursor={true}
               loop={true}
               slidesPerView={1}
@@ -149,6 +155,9 @@ export const Home = () => {
           <p>Bebidas</p>
           {dishes.filter((dish) => dish.category == "drinks").length > 0 ? (
             <Swiper
+              style={{
+                "--swiper-navigation-size": "30px",
+              }}
               grabCursor={true}
               loop={true}
               slidesPerView={1}

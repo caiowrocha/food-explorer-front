@@ -45,7 +45,7 @@ export const Content = styled.div`
   .swiper-button-next,
   .swiper-button-prev {
     width: 6rem;
-    height: 52rem;
+    height: 42rem;
     margin: -25.6rem -1rem;
 
     color: ${({ theme }) => theme.colors.text};
