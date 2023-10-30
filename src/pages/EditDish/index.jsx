@@ -116,7 +116,7 @@ export const EditDish = () => {
 
   const handleRemoveDish = async () => {
     setIsLoadingDelete(true);
-    const confirm = confirm("Deseja realmente remover este prato?");
+    const confirm = window.confirm("Deseja realmente remover este prato?");
     if (confirm) {
       await api.delete(`/dishes/${params.id}`).then(() => {
         alert("Prato removido.");
@@ -251,6 +251,7 @@ export const EditDish = () => {
             onClick={handleRemoveDish}
             className="colorAdjust"
           />
+
           <Button
             title={isLoading ? "Salvando alterações" : "Salvar alterações"}
             disabled={isLoading}
