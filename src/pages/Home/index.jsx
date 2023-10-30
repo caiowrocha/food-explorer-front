@@ -83,15 +83,15 @@ export const Home = () => {
               breakpoints={{
                 640: {
                   slidesPerView: 2,
-                  spaceBetween: 40,
+                  spaceBetween: 20,
                 },
                 768: {
-                  slidesPerView: 3,
-                  spaceBetween: 80,
+                  slidesPerView: 2,
+                  spaceBetween: 30,
                 },
                 1024: {
                   slidesPerView: 3,
-                  spaceBetween: 240,
+                  spaceBetween: 120,
                 },
               }}
               className="mySwiper"
@@ -123,15 +123,15 @@ export const Home = () => {
               breakpoints={{
                 640: {
                   slidesPerView: 2,
-                  spaceBetween: 40,
+                  spaceBetween: 20,
                 },
                 768: {
-                  slidesPerView: 3,
-                  spaceBetween: 80,
+                  slidesPerView: 2,
+                  spaceBetween: 30,
                 },
                 1024: {
                   slidesPerView: 3,
-                  spaceBetween: 240,
+                  spaceBetween: 120,
                 },
               }}
               className="mySwiper"
@@ -159,15 +159,15 @@ export const Home = () => {
               breakpoints={{
                 640: {
                   slidesPerView: 2,
-                  spaceBetween: 40,
+                  spaceBetween: 20,
                 },
                 768: {
-                  slidesPerView: 3,
-                  spaceBetween: 80,
+                  slidesPerView: 2,
+                  spaceBetween: 30,
                 },
                 1024: {
                   slidesPerView: 3,
-                  spaceBetween: 240,
+                  spaceBetween: 120,
                 },
               }}
               autoplay={{

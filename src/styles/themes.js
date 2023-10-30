@@ -1,7 +1,5 @@
 export const dark = {
   colors: {
-    background_900: "#000A0F",
-
     background_700: "#FF002E",
     background_600: "hsla(200, 100%, 5%, 1)",
 
@@ -54,7 +52,6 @@ export const dark = {
 
 export const light = {
   colors: {
-    background_900: "#000A0F",
     background_800: "#0D1D25",
     background_700: "#FF002E",
     background_600: "hsla(200, 100%, 5%, 1)",

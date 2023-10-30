@@ -30,6 +30,13 @@ export const Content = styled.div`
     display: flex;
     justify-content: center;
     margin-top: 3.2rem;
+    gap: 1rem;
+    width: 100%;
+    white-space: nowrap;
+    > .colorAdjust {
+      background-color: ${({ theme }) => theme.colors.header_background};
+      color: ${({ theme }) => theme.colors.text};
+    }
   }
 
   @media only screen and (min-width: 768px) {

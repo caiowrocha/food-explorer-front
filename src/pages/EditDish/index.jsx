@@ -65,13 +65,6 @@ export const EditDish = () => {
     );
   };
 
-  const handleEditImage = (e) => {
-    const file = e.target.files[0];
-    setDishImageFile(file);
-    const prev = URL.createObjectURL(file);
-    setDishImage(prev);
-  };
-
   const handleEditDish = async () => {
     if (!dishImage) {
       alert("Você precisa adicionar uma imagem para o prato.");
@@ -253,9 +246,16 @@ export const EditDish = () => {
 
         <div className="button">
           <Button
+            title={isLoadingDelete ? "Excluindo..." : "Excluir prato"}
+            disabled={isLoadingDelete}
+            onClick={handleRemoveDish}
+            className="colorAdjust"
+          />
+          <Button
             title={isLoading ? "Salvando alterações" : "Salvar alterações"}
             disabled={isLoading}
             onClick={handleEditDish}
+            className="sizeAdjust"
           />
         </div>
       </Content>

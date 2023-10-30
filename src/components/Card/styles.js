@@ -31,7 +31,7 @@ export const Content = styled.div`
   .editDishButton {
     position: absolute;
     top: 1.2rem;
-    right: 1.2rem;
+    right: 5rem;
     background: transparent;
     border: none;
     color: ${({ theme }) => theme.colors.text};
